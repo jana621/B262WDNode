@@ -9,9 +9,10 @@ import dotenv from "dotenv";
 const app = express();
 
 dotenv.config();
-const PORT = 619;
+const PORT = process.env.PORT;  // heroku will fill automatically
 
-app.use(express.json()); // To convvert all POST datas to json
+// heroku does not hae dotenv file
+app.use(express.json()); // To convert all POST datas to json - inbuilt middleware
 
 // const users = [
 //         {
