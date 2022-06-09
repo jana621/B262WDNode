@@ -112,7 +112,7 @@ async function createConnection(){
 createConnection();
 
 app.get("/", (request, response) => {
-    response.send("Hola Amigo!!!");
+    response.send("Hola Amigos!!!");
 });
 
 app.get("/users/:id", async (request, response) => {
@@ -168,20 +168,20 @@ app.post("/users", async (request, response) => {
     response.send(result);
 });
 
-// app.get("/users", (request, response) => {
-//     const {color, ageGT} = request.query;
-//     console.log(request.query, color, ageGT);
+app.get("/users", (request, response) => {
+    const {color, ageGT} = request.query;
+    console.log(request.query, color, ageGT);
 
-//     if(!color && !ageGT){
-//         response.send(users);
-//     } else if(color && !ageGT){
-//         response.send(users.filter((user) => user.color === color));
-//     } else if(!color && ageGT){
-//         response.send(users.filter((user) => user.age >= ageGT));
-//     } else {
-//         response.send(users.filter((user) => user.color === color && user.age >= ageGT));
-//     }
-// }); 
+    if(!color && !ageGT){
+        response.send(users);
+    } else if(color && !ageGT){
+        response.send(users.filter((user) => user.color === color));
+    } else if(!color && ageGT){
+        response.send(users.filter((user) => user.age >= ageGT));
+    } else {
+        response.send(users.filter((user) => user.color === color && user.age >= ageGT));
+    }
+}); 
 
 app.listen(PORT, ()=> console.log("The server is started in", PORT));
 
